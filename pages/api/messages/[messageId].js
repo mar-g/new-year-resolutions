@@ -1,10 +1,17 @@
+import mongoose from "mongoose";
+import { getMessage, delMessage } from "../../../db/actions";
+
+mongoose.connect("mongodb://127.0.0.1:27017/messages", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
 export default function handlerID(req, res) {
   if (req.method === "GET") {
-    const id = req.query.messageId;
-    res.send("GET message " + id);
+    return getMessage(req, res);
   }
+
   if (req.method === "DELETE") {
-    const id = req.query.messageId;
-    res.send("DEL message " + id);
+    return delMessage(req, res);
   }
 }

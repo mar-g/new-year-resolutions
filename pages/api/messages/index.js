@@ -1,31 +1,17 @@
 import mongoose from "mongoose";
-import Message from "../../../db/model";
+import { getMessages, saveMessage } from "../../../db/actions";
 
-// mongoose.connect("mongodb://127.0.0.1:27017/messages", {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
-
-// const newMessage = new Message({
-//   message: "Test",
-//   edit: true,
-// });
+mongoose.connect("mongodb://127.0.0.1:27017/messages", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 export default function handler(req, res) {
   if (req.method === "GET") {
-    res.send("GET messageS");
+    return getMessages(req, res);
   }
 
   if (req.method === "POST") {
-    //console.log(req);
-    const message = req.body.message;
-    const edit = req.body.edit;
-    res.send("ADD message" + message + edit);
+    return saveMessage(req, res);
   }
 }
-
-// export default (req, res) => {
-//   const data = newMessage.save();
-//   console.log(data);
-//   res.status(200).send("ok");
-// };

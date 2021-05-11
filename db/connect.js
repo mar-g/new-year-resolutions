@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-//require("dotenv").config();
 
 export default async function connectToDb() {
   // Here is where we check if there is an active connection.
@@ -7,7 +6,7 @@ export default async function connectToDb() {
 
   try {
     // Here is where we create a new connection.
-    await mongoose.connect("mongodb://127.0.0.1:27017/messages", {
+    await mongoose.connect(process.env.DB_HOST, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

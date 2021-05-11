@@ -1,3 +1,3 @@
 export default function Post() {
-  return <div>Post</div>;
+  return <div className="item"></div>;
 }

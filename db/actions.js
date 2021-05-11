@@ -2,7 +2,6 @@ import Message from "../db/model";
 
 export async function getMessages(req, res) {
   const data = await Message.find({});
-  console.log(data);
   res.status(200).json(data);
 }
 

@@ -1,12 +1,9 @@
-import mongoose from "mongoose";
 import { getMessage, delMessage } from "../../../db/actions";
+import connectToDb from "../../../db/connect";
 
-mongoose.connect("mongodb://127.0.0.1:27017/messages", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+export default async function handlerID(req, res) {
+  await connectToDb();
 
-export default function handlerID(req, res) {
   if (req.method === "GET") {
     return getMessage(req, res);
   }

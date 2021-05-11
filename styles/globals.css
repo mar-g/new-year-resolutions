@@ -1,16 +1,86 @@
-html,
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+
+html {
+  max-width: 100vw;
+  overflow-y: scroll;
+}
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #f0e3d0;
+  font-family: "Roboto", sans-serif;
+  color: #404040;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.container {
+  margin-top: 2em;
 }
 
-* {
-  box-sizing: border-box;
+#message {
+  width: 100%;
+  height: 100%;
+  color: #404040;
+  border-radius: 10px;
+  outline: none;
+  background-color: #f0eeeb;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0 1em;
+}
+
+.message div.item {
+  background-color: #fbf2f2;
+  border-radius: 10px;
+  padding: 0.4em 0.8em 0.8em;
+  margin-bottom: 1em;
+  -webkit-box-shadow: 9px 10px 13px -2px rgba(0, 0, 0, 0.59);
+  box-shadow: 9px 10px 13px -2px rgba(0, 0, 0, 0.59);
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+img {
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+img:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+#checkbox {
+  margin-left: 0;
+}
+
+label {
+  font-size: 0.7em;
+}
+
+.edit-msg {
+  margin-top: 5px;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  float: right;
+  opacity: 0.4;
+}
+
+.close-msg {
+  margin-top: 5px;
+  width: 16px;
+  height: 16px;
+  float: right;
+  opacity: 0.5;
+}
+
+li {
+  clear: both;
+  padding: 1px 6px 10px;
 }

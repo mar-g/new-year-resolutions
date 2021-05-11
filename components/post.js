@@ -1,3 +1,7 @@
-export default function Post() {
-  return <div className="item"></div>;
+export default function Post(props) {
+  return (
+    <div className="item">
+      <li>{props.message}</li>
+    </div>
+  );
 }

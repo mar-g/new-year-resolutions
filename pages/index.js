@@ -27,10 +27,7 @@ class Home extends React.Component {
   };
 
   addMessage = async () => {
-    const res = await axios.post(
-      "http://localhost:3000/api/messages",
-      this.state.edited
-    );
+    const res = await axios.post("/api/messages", this.state.edited);
     const newMessage = res.data;
     this.setState((prevState) => ({
       message: [...prevState.message, newMessage],
@@ -39,7 +36,7 @@ class Home extends React.Component {
   };
 
   delMessage = async (id, message) => {
-    await axios.delete("http://localhost:3000/api/messages/" + id);
+    await axios.delete("/api/messages/" + id);
     if (message) {
       this.setState((prevState) => ({
         edited: { ...prevState.edited, message: message },
@@ -94,8 +91,10 @@ export default Home;
 
 export async function getServerSideProps() {
   await connectToDb();
-  const response = await fetch("http://localhost:3000/api/messages");
-  const messages = await response.json();
+  const response = await axios.get(
+    process.env.PRODUCTION_URL + "/api/messages"
+  );
+  const messages = response.data;
 
   return {
     props: {

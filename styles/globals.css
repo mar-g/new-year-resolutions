@@ -56,7 +56,9 @@ img:hover {
 }
 
 #checkbox {
+  display: inline-block;
   margin-left: 0;
+  margin-right: 3px;
 }
 
 label {

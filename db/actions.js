@@ -12,11 +12,16 @@ export async function getMessage(req, res) {
 }
 
 export async function saveMessage(req, res) {
-  const message = req.body.message;
-  const edit = req.body.edit;
-  const newMessage = new Message({ message, edit });
-  await newMessage.save();
-  res.status(200).json(newMessage);
+  const numberOfMessage = await Message.countDocuments({});
+  if (numberOfMessage < 30) {
+    const message = req.body.message;
+    const edit = req.body.edit;
+    const newMessage = new Message({ message, edit });
+    await newMessage.save();
+    res.status(200).json(newMessage);
+  } else {
+    res.status(200).send(false);
+  }
 }
 
 export async function delMessage(req, res) {

@@ -6,7 +6,6 @@ export default function Post(props) {
           className="close-msg"
           src="close.svg"
           onClick={() => props.remove(props.id, false)}
-          style={{ visibility: props.checkbox ? "visible" : "hidden" }}
         />
         <img
           className="edit-msg"

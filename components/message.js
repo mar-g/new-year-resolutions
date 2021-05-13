@@ -4,7 +4,7 @@ export default function Messsage(props) {
       <textarea
         id="message"
         value={props.text}
-        placeholder="Click w zdjęcie - wysyła..."
+        placeholder="Click in the picture to send"
         rows="4"
         onChange={(e) => props.value(e.target.value)}
       ></textarea>

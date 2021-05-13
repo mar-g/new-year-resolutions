@@ -27,12 +27,20 @@ class Home extends React.Component {
   };
 
   addMessage = async () => {
-    const res = await axios.post("/api/messages", this.state.edited);
-    const newMessage = res.data;
-    this.setState((prevState) => ({
-      message: [...prevState.message, newMessage],
-      edited: { message: "", edit: this.state.edited.edit },
-    }));
+    if (this.state.edited.message) {
+      const res = await axios.post("/api/messages", this.state.edited);
+      const newMessage = res.data;
+      if (newMessage) {
+        this.setState((prevState) => ({
+          message: [...prevState.message, newMessage],
+          edited: { message: "", edit: this.state.edited.edit },
+        }));
+      } else {
+        this.setState({
+          edited: { message: "Max: 30", edit: this.state.edited.edit },
+        });
+      }
+    }
   };
 
   delMessage = async (id, message) => {
@@ -62,7 +70,7 @@ class Home extends React.Component {
               checked={this.state.edited.erase}
               onChange={this.toggleCheck}
             />
-            <label htmlFor="checkbox">Bez edycji</label>
+            <label htmlFor="checkbox">no edit</label>
           </div>
         </div>
         <div className="row">

@@ -1,6 +1,6 @@
 import React from "react";
 import Message from "../components/message";
-import Photo from "../components/photo";
+import Send from "../components/send";
 import Post from "../components/post";
 import connectToDb from "../db/connect";
 import axios from "axios";
@@ -59,7 +59,7 @@ class Home extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <Photo add={this.addMessage} />
+          <Send add={this.addMessage} />
           <Message value={this.onChange} text={this.state.edited.message} />
         </div>
         <div className="row mb-3">

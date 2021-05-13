@@ -43,16 +43,17 @@ ul {
   word-wrap: break-word;
 }
 
-img {
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
+.send {
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  opacity: 0.6;
 }
 
-img:hover {
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
+.send:hover {
+  -webkit-transform: scale(1.06);
+  -ms-transform: scale(1.06);
+  transform: scale(1.06);
 }
 
 #checkbox {
@@ -72,6 +73,7 @@ label {
   margin-right: 8px;
   float: right;
   opacity: 0.4;
+  cursor: pointer;
 }
 
 .close-msg {
@@ -79,7 +81,8 @@ label {
   width: 16px;
   height: 16px;
   float: right;
-  opacity: 0.5;
+  opacity: 0.4;
+  cursor: pointer;
 }
 
 li {

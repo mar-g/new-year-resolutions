@@ -97,11 +97,15 @@ class Home extends React.Component {
     );
   }
 }
+
 export default Home;
 
-export async function getServerSideProps() {
-  const response = await axios.get(process.env.VERCEL_URL + "/api/messages");
+export async function getServerSideProps(context) {
+  await connectToDb();
+  const response = await axios.get("https://new-year-resolutions.vercel.app/");
+  
   const messages = response.data;
+
   return {
     props: {
       messages,

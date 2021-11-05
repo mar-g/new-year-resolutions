@@ -103,7 +103,7 @@ export default Home;
 export async function getServerSideProps(context) {
   console.log(process.env.VERCEL_URL  + "/api/messages")
   await connectToDb();
-  const response = await axios.get(process.env.VERCEL_URL  + "/api/messages");
+  const response = await axios.get(process.env.VERCEL_URL  + "api/messages");
   
   const messages = response.data;
 

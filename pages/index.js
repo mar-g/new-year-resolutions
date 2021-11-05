@@ -100,12 +100,10 @@ class Home extends React.Component {
 
 export default Home;
 
-export async function getServerSideProps() {
-  console.log(process.env.PRODUCTION_URL + "/api/messages")
+export async function getServerSideProps(context) {
+  const host = context.req.headers.referer;
   await connectToDb();
-  const response = await axios.get(
-    process.env.PRODUCTION_URL + "/api/messages"
-  );
+  const response = await axios.get(host + "api/messages");
   
   const messages = response.data;
 

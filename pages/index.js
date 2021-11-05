@@ -102,7 +102,7 @@ export default Home;
 
 export async function getServerSideProps(context) {
   await connectToDb();
-  const response = await axios.get("https://new-year-resolutions.vercel.app/");
+  const response = await axios.get("https://new-year-resolutions.vercel.app/api/messages");
   
   const messages = response.data;
 

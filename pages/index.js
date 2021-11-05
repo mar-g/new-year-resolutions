@@ -37,7 +37,7 @@ class Home extends React.Component {
         }));
       } else {
         this.setState({
-          edited: { message: "Maksymalnie 15 wpisów", edit: this.state.edited.edit },
+          edited: { message: "Maksymalnie 25 wpisów", edit: this.state.edited.edit },
         });
       }
     }

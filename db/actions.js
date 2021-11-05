@@ -13,7 +13,7 @@ export async function getMessage(req, res) {
 
 export async function saveMessage(req, res) {
   const numberOfMessage = await Message.countDocuments({});
-  if (numberOfMessage < 15) {
+  if (numberOfMessage < 25) {
     const message = req.body.message;
     const edit = req.body.edit;
     const newMessage = new Message({ message, edit });

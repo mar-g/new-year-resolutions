@@ -101,6 +101,7 @@ class Home extends React.Component {
 export default Home;
 
 export async function getServerSideProps() {
+  console.log(`${process.env.VERCEL_URL}/api/messages`);
   await connectToDb();
   const response = await axios.get(`${process.env.VERCEL_URL}/api/messages`);
   

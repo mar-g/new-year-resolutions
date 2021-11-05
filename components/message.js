@@ -4,8 +4,8 @@ export default function Messsage({ value, text }) {
       <textarea
         id="message"
         value={text}
-        placeholder="Click in the picture to send"
-        rows="4"
+        placeholder="Klik w kopertę wysyła..."
+        rows="5"
         onChange={(e) => value(e.target.value)}
       ></textarea>
     </div>

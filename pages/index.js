@@ -37,7 +37,7 @@ class Home extends React.Component {
         }));
       } else {
         this.setState({
-          edited: { message: "Max: 30", edit: this.state.edited.edit },
+          edited: { message: "Maksymalnie 15 wpisów", edit: this.state.edited.edit },
         });
       }
     }
@@ -57,6 +57,8 @@ class Home extends React.Component {
 
   render() {
     return (
+      <>
+      <div className="bg"></div>
       <div className="container">
         <div className="row">
           <Send add={this.addMessage} />
@@ -70,7 +72,7 @@ class Home extends React.Component {
               checked={this.state.edited.erase}
               onChange={this.toggleCheck}
             />
-            <label htmlFor="checkbox">no edit</label>
+            <label htmlFor="checkbox">bez edycji</label>
           </div>
         </div>
         <div className="row">
@@ -91,6 +93,7 @@ class Home extends React.Component {
           </div>
         </div>
       </div>
+      </>
     );
   }
 }
@@ -98,10 +101,12 @@ class Home extends React.Component {
 export default Home;
 
 export async function getServerSideProps() {
+  console.log(process.env.PRODUCTION_URL + "/api/messages")
   await connectToDb();
   const response = await axios.get(
     process.env.PRODUCTION_URL + "/api/messages"
   );
+  
   const messages = response.data;
 
   return {

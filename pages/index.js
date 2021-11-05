@@ -2,7 +2,6 @@ import React from "react";
 import Message from "../components/message";
 import Send from "../components/send";
 import Post from "../components/post";
-import connectToDb from "../db/connect";
 import axios from "axios";
 
 class Home extends React.Component {
